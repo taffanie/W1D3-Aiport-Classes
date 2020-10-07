@@ -1,5 +1,6 @@
 class Plane {
     constructor(destination) {
+        this.inbound = null
         this.passengers = []
         this.destination = destination
     }
