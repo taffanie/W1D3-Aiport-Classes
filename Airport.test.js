@@ -25,6 +25,32 @@ describe('Airport', () => {
         airport.land("Singapore")
         expect(airport.planes).toContain("Singapore")
     });
+    // test('airports should have a city', (done) => {
+    //     // Test for callbacks 
+    //     const CDG = new Airport("CDG")
+    //     CDG.getInfo((err, info) => {
+    //         console.log(info)
+    //         expect(err).toBeNull()
+    //         expect(info.country).toEqual('FR')
+    //         done() // need "done" function to test async in jest
+    //     })
+    // });
+    // test('airports should have a city', () => {
+    //     // Test for promises 
+    //     const CDG = new Airport("CDG")
+    //     return CDG.getInfo()
+    //         .then(info => {
+    //             expect(info.city).toEqual("Paris")
+    //         })
+    //         .catch(err => {
+    //             expect(err).toBeNull()
+    //         })
+    // });
+    test('can get information like the city from the airport instance', async () => {
+        const CDG = new Airport("CDG")
+        const airport = await CDG.getInfo()
+        expect(airport.city).toEqual("Paris")
+    });
 });
 
 
